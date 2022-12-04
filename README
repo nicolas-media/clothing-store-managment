@@ -1,0 +1,53 @@
+# Clothing Store
+
+A clothing store application built with Node.js, React, and MongoDB.
+
+## Features
+
+- Barcode scanning for adding items to the cart
+- Stock management for adding and removing items from the stock
+- User management for creating and logging in as users
+
+## Requirements
+
+- Docker
+- Docker Compose
+
+To run the inventory management system that we have created as a Docker container on a fresh installation of Debian 11, you will need to install Docker and Docker Compose on your system.
+
+First, update the package index and install the necessary packages by running the following commands:
+
+
+sudo apt update
+sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+
+Next, add the Docker GPG key and repository to your system by running the following commands:
+
+
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+Update the package index again and install Docker and Docker Compose by running the following commands:
+
+
+sudo apt update
+sudo apt install -y docker-ce docker-c
+
+## Running the Application
+
+1. Clone the repository:
+
+git clone https://github.com/nicolas-media/clothing-store-managment.git
+
+2. Navigate to the directory:
+
+cd clothing-store-managment
+
+3. Build the Docker image:
+
+docker-compose build
+
+4. Run the Docker containers:
+
+docker-compose up
+
+5. Access the application in a web browser at http://localhost:3000.
