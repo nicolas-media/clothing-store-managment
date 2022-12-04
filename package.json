@@ -4,7 +4,7 @@
     "description": "A clothing store management software built with node js, react, and docker",
     "main": "index.js",
     "scripts": {
-      "start": "node src/index.js",
+      "start": "node index.js",
       "build": "npm run build:client && npm run build:server",
       "build:client": "cd client && npm run build",
       "build:server": "babel src --out-dir dist",
