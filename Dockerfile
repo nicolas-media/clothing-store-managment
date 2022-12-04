@@ -1,21 +1,20 @@
-FROM node:12
+# Use Node.js as the base image
+FROM node:latest
 
-# Install MongoDB
-RUN apt-get update
-RUN apt-get install -y mongodb
-
-# Create the database for the inventory management system
-RUN mongo inventoryDB --eval "db.createCollection('items')"
-
-# Copy the code for the inventory management system to the container
-COPY . /app
-
-# Install the dependencies for the inventory management system
+# Set the working directory
 WORKDIR /app
+
+# Copy the package.json and package-lock.json files
+COPY package.json package-lock.json ./
+
+# Install the required dependencies
 RUN npm install
 
-# Expose the server port
+# Copy the rest of the code
+COPY . .
+
+# Expose the port for the Node.js server
 EXPOSE 3000
 
-# Start the server when the container is run
-CMD ["node", "server.js"]
+# Run the server and client
+CMD ["npm", "start"]
